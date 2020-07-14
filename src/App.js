@@ -150,4 +150,6 @@ class App extends Component {
   }
 }
 
+// "start": "serve -s build"
+
 export default App;

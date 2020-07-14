@@ -22,6 +22,13 @@ class Register extends React.Component {
     this.setState({name: event.target.value});
   }
 
+  onReturnKeyPress = (event) => {
+    if(event.keyCode === 13) {
+      console.log("Pressed " + event.key);
+      this.onSubmitRegister();
+    }
+  }
+
   onSubmitRegister = (event) => {
     fetch('https://hudson-syrup-48249.herokuapp.com/register', {
       method: 'post',
@@ -75,6 +82,7 @@ class Register extends React.Component {
                   type="password" 
                   name="password"  
                   id="password"
+                  onKeyDown={this.onReturnKeyPress}
                   onChange={ this.onPasswordChange }
                 />
               </div>

@@ -18,6 +18,13 @@ class Signin extends React.Component {
     this.setState({signInPassword: event.target.value});
   }
 
+  onReturnKeyPress = (event) => {
+    if(event.keyCode === 13) {
+      // console.log("Pressed " + event.key);
+      this.onSubmitSignIn();
+    }
+  }
+
   onSubmitSignIn = () => {
    fetch('https://hudson-syrup-48249.herokuapp.com/signin', {
      method: 'post',
@@ -62,6 +69,7 @@ class Signin extends React.Component {
                   name="password"  
                   id="password"
                   onChange={this.onPasswordChange}
+                  onKeyDown={this.onReturnKeyPress}
                 />
               </div>
             </fieldset>
